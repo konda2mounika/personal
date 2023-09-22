@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    environment {
+        SCANNER_HOME = tool 'sonarqube-scanner'
+    }
+    tools{
+        jdk 'OpenJDK-11'
+        maven 'maven3'
+    }
+
+    stages {
+        stage('SCM') {
+            steps {
+               git changelog: false, poll: false, url: 'https://gitlab.com/training691/spring-petclinic-microservices.git'
+            }
+        }
+          stage('Compile') {
+            steps {
+                echo 'mvn clean compile'
+            }
+        }
+          stage('Sonarqube Analysis') {
+            steps {
+                withSonarQubeEnv('sonar-server') {
+        sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
+        -Dsonar.java.binaries=. \
+        -Dsonar.projectKey=myproject '''
+                }
+            }
+          }
+            stage('build') {
+            steps {
+                echo 'mvn clean package'
+             }
+        }
+        
+       
+    }
