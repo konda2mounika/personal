@@ -1,6 +1,6 @@
 import boto3
 
-aws_management_console = boto3.session.Session(profile_name="Konda Srikanth")
+aws_management_console = boto3.session.Session
 iam_console_resource = aws_management_console.resource('iam') 
 
 
