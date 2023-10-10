@@ -1,6 +1,6 @@
 # Import all the modules and Libraries
 import boto3
-from pprint import pprint
+
 # Open Management Console
  aws_management_console = boto3.session.Session(profile_name="default")
 # Open IAM Console
