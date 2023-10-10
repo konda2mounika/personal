@@ -9,4 +9,4 @@ iam_console = aws_management_console.client(service_name="iam")
 
 # Use Boto3 Documentation to get more information (https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
 result =ec2_console.describe_instances()
-print(result)
+pprint(result)
