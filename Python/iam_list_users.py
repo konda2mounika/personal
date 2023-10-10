@@ -8,4 +8,4 @@ iam_console = aws_management_console.client(service_name="iam")
 # Use Boto3 Documentation to get more information (https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
 result =iam_console.list_users()
 for each_user in result['Users']:
-print(each_user['UserName'])
+    print(each_user['UserName'])
