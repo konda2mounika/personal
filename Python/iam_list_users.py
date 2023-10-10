@@ -7,4 +7,5 @@ aws_management_console = boto3.session.Session(profile_name="default")
 iam_console = aws_management_console.client(service_name="iam")
 # Use Boto3 Documentation to get more information (https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
 result =iam_console.list_users()
-pprint(result['UserName'])
+for each_user in result['Users']
+pprint(each_user['UserName'])
