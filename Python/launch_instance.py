@@ -8,6 +8,6 @@ ec2_console = aws_management_console.client("ec2")
 response = ec2_console.run_instances(
     ImageId = 'ami-065680f8cbec51c69',
     InstanceType= 't2.micro',
-    maxCount=1,
-    minCount=1
+    MaxCount=1,
+    MinCount=1
 )
